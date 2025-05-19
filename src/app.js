@@ -1,11 +1,31 @@
-import "bootstrap";
-import "./style.css";
+let pronoun = ['el', 'la'];
+let adj = ['grande', 'pequeño'];
+let noun = ['gato', 'perro'];
+let extensions = ['.com', '.net'];  
 
 
-import "./assets/img/rigo-baby.jpg";
-import "./assets/img/4geeks.ico";
+function generateDomains(pronoun, adj, noun, extensions) {
+  let totalCombinations = 0; 
 
-window.onload = function() {
-  //write your code here
-  console.log("Hello Rigo from the console!");
-};
+  
+  for (let p of pronoun) {
+    for (let a of adj) {
+      for (let n of noun) {
+        for (let ext of extensions) {
+          
+          let domain = p + a + n + ext;
+          console.log(domain); 
+          totalCombinations++; 
+
+          
+          if (totalCombinations >= pronoun.length * adj.length * noun.length * extensions.length) {
+            return;
+          }
+        }
+      }
+    }
+  }
+}
+
+generateDomains(pronoun, adj, noun, extensions);
+
